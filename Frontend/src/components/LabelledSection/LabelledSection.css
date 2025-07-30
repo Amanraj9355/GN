@@ -1,0 +1,40 @@
+.scrollbar {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  animation: scrollLeftToRight 20s linear infinite;
+}
+
+.scrollbar:hover {
+  animation-play-state: paused;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-button {
+  display: none;
+}
+
+
