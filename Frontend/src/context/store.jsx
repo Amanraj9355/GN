@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
-  const backendUrl = "http://localhost:8000";
+  const backendUrl = "https://gn-production-fdc6.up.railway.app";
   const [isAuthVisible, setIsAuthVisible] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [cartItems, setCartItems] = useState({});
