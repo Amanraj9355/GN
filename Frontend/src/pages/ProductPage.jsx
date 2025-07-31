@@ -60,7 +60,12 @@ const ProductPage = () => {
 
     try {
       await addToWishlist(product._id);
-      setIsHeart((prev) => !prev);
+      setIsHeart(true);
+
+      // Reset heart icon after 1.5 seconds
+      setTimeout(() => {
+        setIsHeart(false);
+      }, 1500);
     } catch (error) {
       console.error("Error toggling wishlist:", error.message);
     }
@@ -74,6 +79,11 @@ const ProductPage = () => {
       }
       addToCart(product._id, currQty);
       setIsAdded(true);
+
+      // Reset button state after 2 seconds
+      setTimeout(() => {
+        setIsAdded(false);
+      }, 2000);
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +101,7 @@ const ProductPage = () => {
   }, [products, ProductId]);
 
   useEffect(() => {
-    const prods = products.filter((prod) => prod.subCategory === subCategory);
+    const prods = products.filter((prod) => prod.subCategory === subCategory && prod._id !== ProductId);
     setRelatedProducts(prods.slice(0, 4));
   }, [product, ProductId]);
 

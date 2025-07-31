@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { ShopContext } from "../context/store";
 import { Trash2, MinusCircle, PlusCircle } from "lucide-react";
 import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
-
 
 const Cart = () => {
   const { cartItems, products, deleteCartItem, updateCart, getUserCart } =
@@ -46,57 +44,89 @@ const Cart = () => {
   const calculateTotalAmount = () =>
     cartProducts.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-  // ✅ PDF Download Function
-const handleDownloadPDF = () => {
-  const doc = new jsPDF();
+  const handleDownloadPDF = async () => {
+    if (!cartProducts || cartProducts.length === 0) return;
 
-  // Load logo
-  const logo = new Image();
-  logo.src = '/logo.png'; // Ensure this is in the "public" folder
+    const doc = new jsPDF("p", "pt", "a4");
+    let y = 40;
 
-  logo.onload = () => {
-    // Add logo
-    doc.addImage(logo, 'PNG', 14, 10, 50, 25);
+    // ✅ Load logo first
+    const logo = await loadImage("/logo.png");
+    if (logo) {
+      doc.addImage(logo, "PNG", 40, 20, 90, 45);
 
-    // Title (moved down to avoid overlap)
-    doc.setFontSize(18);
-    doc.text("Cart Items Summary", 140, 25);
+      // Title (aligned right of logo)
+      doc.setFontSize(18);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(33, 37, 41);
+      doc.text("Cart Items Summary", 390, 50);
+      y += 40;
+    }
 
-    // Table columns
-    const tableColumn = ["Product Name", "Product Code", "Category", "Price", "Qty", "Total"];
-    const tableRows = [];
+    // ✅ Loop through products
+    for (let i = 0; i < cartProducts.length; i++) {
+      const item = cartProducts[i];
+      if (!item || !item._id) continue;
 
-    cartProducts.forEach((item) => {
-      tableRows.push([
-        item.name,
-        item.productCode,
-        item.category,
-        `Rs. ${item.price}`,
-        item.quantity,
-        `Rs. ${item.price * item.quantity}`,
-      ]);
-    });
+      y += 30;
 
-    // ✅ Use autoTable with spacing
-    autoTable(doc, {
-      head: [tableColumn],
-      body: tableRows,
-      startY: 50, // start below logo and title
-      theme: 'striped',
-      headStyles: { fillColor: [41, 128, 185] },
-    });
+      // Load product image
+      const image = await loadImage(item.images[0]);
+      if (image) {
+        doc.addImage(image, "JPEG", 40, y, 80, 80);
+      }
 
-    // Total amount payable
-    const totalAmount = calculateTotalAmount();
+      const textX = 130;
+      const textY = y + 15;
+
+      // Product name with hyperlink
+      doc.setFontSize(14);
+      doc.setTextColor(0, 102, 204);
+      doc.textWithLink(item.name, textX, textY, {
+        url: `${window.location.origin}/product/${item._id}`,
+      });
+
+      // Other details
+      doc.setFontSize(11);
+      doc.setTextColor(80);
+      doc.text(`Product Code: ${item.productCode}`, textX, textY + 15);
+      doc.text(`Category: ${item.category}`, textX, textY + 30);
+      doc.text(`Price: Rs ${item.price}`, textX, textY + 45);
+      doc.text(`Quantity: ${item.quantity}`, textX, textY + 60);
+      doc.text(`Total: Rs ${item.price * item.quantity}`, textX, textY + 75);
+
+      // Divider line
+      y += 110;
+      doc.setDrawColor(220);
+      doc.line(40, y, 555, y);
+
+      // Page overflow
+      if (y > 700 && i < cartProducts.length - 1) {
+        doc.addPage();
+        y = 40;
+      }
+    }
+
+    // ✅ Total amount
+    y += 30;
     doc.setFontSize(14);
-    doc.text(`Total Amount Payable: Rs. ${totalAmount}`, 14, doc.lastAutoTable.finalY + 15);
+    doc.setTextColor(20);
+    doc.text(`Total Amount Payable: Rs ${calculateTotalAmount()}`, 40, y);
 
-    // Save PDF
+    // ✅ Save file
     doc.save("Gift Nation Cart.pdf");
   };
-};
 
-
+  // ✅ Utility function to load images
+  const loadImage = (url) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.src = url;
+      img.onload = () => resolve(img);
+      img.onerror = (err) => reject(err);
+    });
+  };
 
   if (Object.keys(cartItems).length === 0) {
     return (
