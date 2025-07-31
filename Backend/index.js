@@ -54,3 +54,8 @@ app.use("/api/enquiry", enquiryRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/contact", conntactRouter);
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
+
