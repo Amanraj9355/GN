@@ -54,6 +54,10 @@ app.use("/api/enquiry", enquiryRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/contact", conntactRouter);
 
+app.get("/", (req, res) => {
+  res.send("Server is running ✅");
+});
+
 app.get("/health", (req, res) => {
   res.status(200).send("OK");
 });
