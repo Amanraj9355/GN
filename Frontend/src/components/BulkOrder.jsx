@@ -4,7 +4,7 @@ const BulkOrder = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-10 bg-[#FAFAFA] py-20 px-6">
       {/* Images Section */}
-      <div className="relative flex items-center">
+      <div className="relative flex items-center scale-90 sm:scale-100">
         {/* First Image */}
         <div
                     className="rounded-t-full overflow-hidden w-52 md:w-72 h-52 md:h-72 bg-white shadow-lg -mb-10 z-20"

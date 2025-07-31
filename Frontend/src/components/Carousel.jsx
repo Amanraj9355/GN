@@ -16,13 +16,13 @@ export default function SimpleSlider() {
   };
 
   return (
-    <div className="w-full 2xl:max-w-6xl 2xl:mx-auto my-5">
+    <div className="w-full 2xl:max-w-6xl 2xl:mx-auto my-10 sm:my-5 scale-200 sm:scale-100">
     <Slider {...settings}>
       <div>
-        <img src="/poster1.jpg" alt="" />
+        <img src="/poster1.jpg" alt="" className="ml-16 sm:ml-0"/>
       </div>
       <div>
-        <img src="/poster2.jpg" alt="" />
+        <img src="/poster2.jpg" alt="" className="ml-16 sm:ml-0"/>
       </div>
     </Slider>
     </div>

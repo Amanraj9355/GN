@@ -10,7 +10,7 @@ const CtaBanner = () => {
   };
   return (
     <div className="my-10 px-6 sm:px-8 lg:px-0 w-full md:max-w-6xl md:mx-auto">
-      <div className="bg-[#111827] rounded-2xl px-2 sm:px-12 lg:px-16 py-5 flex flex-col md:flex-row items-center justify-between text-white overflow-hidden relative">
+      <div className="bg-[#111827] rounded-2xl px-8 sm:px-12 lg:px-16 py-6 flex flex-col md:flex-row items-center justify-between text-white overflow-hidden relative">
         {/* Left */}
         <div className="w-full md:w-7/12 text-center md:text-left">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
@@ -30,7 +30,7 @@ const CtaBanner = () => {
           <img
             src="/CtaBannerImg.png"
             alt="Gift banner"
-            className="w-4/5 sm:w-3/5 lg:w-2/3 animate-customBounce"
+            className="w-2/3 sm:w-3/5 lg:w-2/3 animate-customBounce"
           />
         </div>
       </div>

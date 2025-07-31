@@ -29,7 +29,7 @@ const LabelledSection = ({ label, products }) => {
       </div>
        <Link
             onClick={() => scrollTo(0, 0)} to={'/categories'}>
-      <div className=" flex items-center justify-center bg-[#e0e0e0] rounded-full font-semibold px-8 py-4 text-sm cursor-pointer hover:bg-[#d4d4d4] duration-200 ease-in-out">
+      <div className=" flex items-center justify-center bg-[#e0e0e0] rounded-full font-semibold px-8 py-4 text-sm cursor-pointer hover:bg-[#d4d4d4] duration-200 ease-in-out -mt-6 sm:mt-0">
         View All Gifts
       </div>
       </Link>

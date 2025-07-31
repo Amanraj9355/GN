@@ -6,25 +6,25 @@ const features = [
     icon: <Truck className="w-6 h-6 text-white" />,
     title: "Global Shipping",
     description: "We globally ship to our clients",
-    bg: "bg-green-400",
+    bg: "bg-gray-800",
   },
   {
     icon: <Coffee className="w-6 h-6 text-white" />,
     title: "Quality Customization",
     description: "Quality customization on all products",
-    bg: "bg-red-400",
+    bg: "bg-gray-800",
   },
   {
     icon: <Gift className="w-6 h-6 text-white" />,
     title: "Best Quality Products",
     description: "We stock some of the best brands",
-    bg: "bg-yellow-400",
+    bg: "bg-gray-800",
   },
   {
     icon: <ShieldCheck className="w-6 h-6 text-white" />,
     title: "Secure Packaging",
     description: "Ensuring safety in every shipment",
-    bg: "bg-blue-400",
+    bg: "bg-gray-800",
   },
 ];
 
@@ -35,7 +35,7 @@ const Features = () => {
       {features.map((item, idx) => (
         <div
           key={idx}
-          className="w-full sm:w-4/12 bg-[#f9f9f9] rounded-2xl p-6 flex flex-col items-center justify-center gap-3 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          className="w-full sm:w-4/12 bg-[#f9f9f9] rounded-lg p-6 flex flex-col items-center justify-center gap-3 shadow-md border border-black/25 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
         >
           <div className={`rounded-full p-3 ${item.bg} shadow-md`}>
             {item.icon}

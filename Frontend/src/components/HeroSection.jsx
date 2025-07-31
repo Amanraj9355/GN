@@ -8,19 +8,19 @@ const HeroSection = () => {
       ?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div className="py-5 md:py-20 h-[60%] sm:h-[85%] my-4 flex items-center justify-center flex-col gap-8 px-4 relative max-w-screen">
+    <div className="py-5 md:py-20 h-[60%] sm:h-[85%] my-4 mb-0 flex items-center justify-center flex-col gap-8 px-4 relative max-w-screen">
       <img
         src="/headerLeft.png"
         className="absolute w-[25%] hidden sm:block sm:-left-24 -bottom-16 animate-customBounce"
       />
       <img
         src="/headerRight.png"
-        className="absolute w-[25%]  hidden sm:block sm:-right-24 -bottom-16 animate-customBounce"
+        className="absolute w-[25%] hidden sm:block sm:-right-24 -bottom-16 animate-customBounce"
       />
 
       <div className="text_ctr flex items-center justify-center flex-col text-center z-10">
-        <div className="heading_ctr text-2xl sm:text-5xl md:text-6xl  font-semibold leading-tight">
-<span className="bg-gray-800 text-white p-2 text-4xl sm:text-5xl md:text-7xl lg:text-8xl inline-block mb-3">Gifts That Speaks</span><br /> From the Heart 🎁
+        <div className="heading_ctr text-3xl sm:text-5xl md:text-6xl  font-semibold leading-tight">
+<span className="bg-gray-800 text-white p-2 text-4xl sm:text-5xl md:text-7xl lg:text-8xl inline-block mb-2 sm:mb-3">Gifts That Speaks</span><br /> From the Heart 🎁
         </div>
         <div className="subheading_ctr text-md sm:text-lg mt-4 sm:w-[75%] text-gray-800">
           Discover unique gifts for every occasion, curated with care and
@@ -44,7 +44,7 @@ const HeroSection = () => {
           <span className="bi bi-gift-fill ml-2 flex items-center justify-center"></span>
         </button>
 
-        <img className="block md:hidden" src="/headerRight.png" alt="" />
+        <img className="block md:hidden w-3/4" src="/headerRight.png" alt="" />
       </div>
     </div>
   );

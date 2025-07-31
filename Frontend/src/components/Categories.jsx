@@ -205,7 +205,7 @@ const Categories = () => {
   ];
 
   return (
-    <div id="collections" className="main_ctr w-full md:max-w-6xl md:mx-auto flex items-center justify-center flex-col py-10 px-6 md:px-0 gap-6">
+    <div id="collections" className="main_ctr w-full md:max-w-6xl md:mx-auto flex items-center justify-center flex-col sm:py-10 px-6 py-10 md:px-0 gap-6">
       <div className="text_ctr flex items-center justify-center flex-col text-center">
         <div className="heading_ctr text-4xl md:text-5xl font-semibold text-center">
           Trending Collections 🔥
@@ -235,7 +235,7 @@ const Categories = () => {
   <img
     src="/headerRight.png"
     alt="gifts"
-    className="hidden md:block absolute right-0 bottom-0 h-30 w-30 transition-transform duration-300 ease-in-out group-hover:rotate-24"
+    className="block absolute right-0 bottom-0 h-20 w-20 sm:h-30 sm:w-30 transition-transform duration-300 ease-in-out group-hover:rotate-24"
   />
 </div>
 
@@ -244,7 +244,7 @@ const Categories = () => {
       </div>
        <Link
             onClick={() => scrollTo(0, 0)} to={"/categories"}>
-        <button className="explore_btn flex items-center justify-center bg-[#111827] rounded-full text-white px-8 py-4 text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out">
+        <button className="explore_btn flex items-center justify-center bg-[#111827] rounded-full text-white px-8 py-4 text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out -mt-16 sm:mt-0">
           Explore Collections
           <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
         </button>

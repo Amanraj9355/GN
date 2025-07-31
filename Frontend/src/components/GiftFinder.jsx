@@ -132,7 +132,7 @@ const GiftFinder = () => {
         </div>
 
         {/* Right Section */}
-        <div className="sm:w-5/12 w-full flex flex-col items-center justify-center gap-4 sm:py-16 py-0 -mt-10 sm:mt-0">
+        <div className="sm:w-5/12 w-full flex flex-col items-center justify-center gap-4 sm:py-16 py-0 sm:mt-0">
           <div className="grid grid-cols-2 gap-4 w-full">
             {suggestedGifts.length > 0 ? (
               suggestedGifts.map((gift) => (
