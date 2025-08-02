@@ -239,7 +239,7 @@ const Cart = () => {
           </div>
           <button
             onClick={handleDownloadPDF}
-            className="w-full bg-black hover:bg-gray-900 text-white font-semibold py-3 rounded-full transition-all text-center block"
+            className="cursor-pointer w-full bg-black hover:bg-gray-900 text-white font-semibold py-3 rounded-full transition-all text-center block"
           >
             Download Cart Items
           </button>

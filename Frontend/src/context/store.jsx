@@ -14,206 +14,247 @@ const ShopContextProvider = (props) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const categoriesData = [
-    {
-      name: "Electronics and Gadgets",
-      category: "Electronics and Gadgets",
-      BtnCta: "Browse",
-      subCategories: [
-        {
-          subCategory: "Portable Electronics",
-          subSubCategories: ["Power Banks", "Bluetooth Speakers", "Earphones"],
-        },
-        {
-          subCategory: "Home Gadgets",
-          subSubCategories: ["Smart Plugs", "Air Purifiers"],
-        },
-        {
-          subCategory: "Tech Accessories",
-          subSubCategories: [
-            "Charging Cables",
-            "Laptop Stands",
-            "Wireless Chargers",
-          ],
-        },
-      ],
-    },
-    {
-      name: "Office Essentials",
-      category: "Office Essentials",
-      BtnCta: "Shop",
-      subCategories: [
-        {
-          subCategory: "Stationery",
-          subSubCategories: ["Diaries", "Notebooks", "Sticky Notes"],
-        },
-        {
-          subCategory: "Organizers",
-          subSubCategories: ["Desk Organizers", "Calendars"],
-        },
-        {
-          subCategory: "Writing Instruments",
-          subSubCategories: ["Premium Pens", "Stylus Pens"],
-        },
-      ],
-    },
-    {
-      name: "Drinkware",
-      category: "Drinkware",
-      BtnCta: "Grab Now",
-      subCategories: [
-        {
-          subCategory: "Bottles",
-          subSubCategories: [
-            "Stainless Steel",
-            "Vacuum Bottles",
-            "Copper Bottles",
-          ],
-        },
-        {
-          subCategory: "Mugs and Tumblers",
-          subSubCategories: ["Coffee Mugs", "Insulated Tumblers"],
-        },
-        {
-          subCategory: "Gift Sets",
-          subSubCategories: ["Bottle and Mug Combos"],
-        },
-      ],
-    },
-    {
-      name: "Apparel",
-      category: "Apparel",
-      BtnCta: "Explore",
-      subCategories: [
-        {
-          subCategory: "T-Shirts",
-          subSubCategories: ["Polo", "Round Neck", "Custom Printed"],
-        },
-        {
-          subCategory: "Jackets",
-          subSubCategories: ["Windcheaters", "Hoodies"],
-        },
-        {
-          subCategory: "Uniforms",
-          subSubCategories: ["Corporate Branding Uniforms"],
-        },
-      ],
-    },
-    {
-      name: "Awards and Recognition",
-      category: "Awards and Recognition",
-      BtnCta: "Discover",
-      subCategories: [
-        {
-          subCategory: "Trophies",
-          subSubCategories: ["Metal", "Crystal", "Wooden", "Acrylic"],
-        },
-        {
-          subCategory: "Plaques",
-          subSubCategories: ["Customized Engravings"],
-        },
-        {
-          subCategory: "Certificates",
-          subSubCategories: ["Certificate Frames"],
-        },
-      ],
-    },
-    {
-      name: "Food and Beverages",
-      category: "Food and Beverages",
-      BtnCta: "Explore",
-      subCategories: [
-        {
-          subCategory: "Gourmet",
-          subSubCategories: ["Dry Fruits"],
-        },
-        {
-          subCategory: "Sweets and Chocolates",
-          subSubCategories: ["Chocolates", "Indian Sweets"],
-        },
-        {
-          subCategory: "Gift Hampers",
-          subSubCategories: ["Curated Sweets & Chocolate Hampers"],
-        },
-      ],
-    },
-    {
-      name: "Eco-Friendly Products",
-      category: "Eco-Friendly Products",
-      BtnCta: "Go Green",
-      subCategories: [
-        {
-          subCategory: "Reusable Items",
-          subSubCategories: ["Bamboo Products", "Cloth Bags"],
-        },
-        {
-          subCategory: "Sustainable Gifts",
-          subSubCategories: ["Seed Paper Stationery", "Jute Items"],
-        },
-        {
-          subCategory: "Green Hampers",
-          subSubCategories: ["Planters", "Organic Kits"],
-        },
-      ],
-    },
-    {
-      name: "Premium Gifts",
-      category: "Premium Gifts",
-      BtnCta: "Premium",
-      subCategories: [
-        {
-          subCategory: "Luxury Items",
-          subSubCategories: ["Branded Wallets", "Watches"],
-        },
-        {
-          subCategory: "Designer Brands",
-          subSubCategories: ["Premium Pens", "Leather Accessories"],
-        },
-        {
-          subCategory: "High-End Combos",
-          subSubCategories: ["Exclusive Hampers"],
-        },
-      ],
-    },
-    {
-      name: "Bags & Luggage",
-      category: "Bags & Luggage",
-      BtnCta: "Shop Bags",
-      subCategories: [
-        { subCategory: "Duffle Bags", subSubCategories: [] },
-        { subCategory: "Executive Trolley Bags", subSubCategories: [] },
-        { subCategory: "Backpack Bags", subSubCategories: [] },
-        { subCategory: "Laptop Bags", subSubCategories: [] },
-        { subCategory: "Sling Bags", subSubCategories: [] },
-        { subCategory: "Fanny Packs", subSubCategories: [] },
-        { subCategory: "Gym Bags", subSubCategories: [] },
-        { subCategory: "Waist Pouch", subSubCategories: [] },
-      ],
-    },
-    {
-      name: "Event and Seasonal Gifts",
-      category: "Event and Seasonal Gifts",
-      BtnCta: "Seasonal",
-      subCategories: [
-        {
-          subCategory: "Festival-Specific",
-          subSubCategories: [
-            "Diwali Diyas",
-            "Christmas Ornaments",
-            "Holi Colors",
-          ],
-        },
-        {
-          subCategory: "New Year Gifts",
-          subSubCategories: ["Calendars", "Year Planners", "Desk Organizers"],
-        },
-        {
-          subCategory: "Thank-You Gifts",
-          subSubCategories: ["Greeting Cards", "Custom Hampers"],
-        },
-      ],
-    },
-  ];
+ const categoriesData = [
+  {
+    name: "Electronics and Gadgets",
+    category: "Electronics and Gadgets",
+    BtnCta: "Browse",
+    subCategories: [
+      {
+        subCategory: "Portable Electronics",
+        subSubCategories: ["Power Banks", "Bluetooth Speakers", "Earphones"],
+      },
+      {
+        subCategory: "Home Gadgets",
+        subSubCategories: ["Smart Plugs", "Air Purifiers"],
+      },
+      {
+        subCategory: "Tech Accessories",
+        subSubCategories: [
+          "Charging Cables",
+          "Laptop Stands",
+          "Wireless Chargers",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Office Essentials",
+    category: "Office Essentials",
+    BtnCta: "Shop",
+    subCategories: [
+      {
+        subCategory: "Stationery",
+        subSubCategories: ["Diaries", "Notebooks", "Sticky Notes"],
+      },
+      {
+        subCategory: "Organizers",
+        subSubCategories: ["Desk Organizers", "Calendars"],
+      },
+      {
+        subCategory: "Writing Instruments",
+        subSubCategories: ["Premium Pens", "Stylus Pens"],
+      },
+    ],
+  },
+  {
+    name: "Drinkware",
+    category: "Drinkware",
+    BtnCta: "Grab Now",
+    subCategories: [
+      {
+        subCategory: "Bottles",
+        subSubCategories: [
+          "Stainless Steel",
+          "Vacuum Bottles",
+          "Copper Bottles",
+        ],
+      },
+      {
+        subCategory: "Mugs and Tumblers",
+        subSubCategories: ["Coffee Mugs", "Insulated Tumblers"],
+      },
+      {
+        subCategory: "Gift Sets",
+        subSubCategories: ["Bottle and Mug Combos"],
+      },
+    ],
+  },
+  {
+    name: "Apparel",
+    category: "Apparel",
+    BtnCta: "Explore",
+    subCategories: [
+      {
+        subCategory: "T-Shirts",
+        subSubCategories: ["Polo", "Round Neck", "Custom Printed"],
+      },
+      {
+        subCategory: "Jackets",
+        subSubCategories: ["Windcheaters", "Hoodies"],
+      },
+      {
+        subCategory: "Uniforms",
+        subSubCategories: ["Corporate Branding Uniforms"],
+      },
+    ],
+  },
+  {
+    name: "Awards and Recognition",
+    category: "Awards and Recognition",
+    BtnCta: "Discover",
+    subCategories: [
+      {
+        subCategory: "Trophies",
+        subSubCategories: ["Metal", "Crystal", "Wooden", "Acrylic"],
+      },
+      {
+        subCategory: "Plaques",
+        subSubCategories: ["Customized Engravings"],
+      },
+      {
+        subCategory: "Certificates",
+        subSubCategories: ["Certificate Frames"],
+      },
+    ],
+  },
+  {
+    name: "Food and Beverages",
+    category: "Food and Beverages",
+    BtnCta: "Explore",
+    subCategories: [
+      {
+        subCategory: "Gourmet",
+        subSubCategories: ["Dry Fruits"],
+      },
+      {
+        subCategory: "Sweets and Chocolates",
+        subSubCategories: ["Chocolates", "Indian Sweets"],
+      },
+      {
+        subCategory: "Gift Hampers",
+        subSubCategories: ["Curated Sweets & Chocolate Hampers"],
+      },
+    ],
+  },
+  {
+    name: "Eco-Friendly Products",
+    category: "Eco-Friendly Products",
+    BtnCta: "Go Green",
+    subCategories: [
+      {
+        subCategory: "Reusable Items",
+        subSubCategories: ["Bamboo Products", "Cloth Bags"],
+      },
+      {
+        subCategory: "Sustainable Gifts",
+        subSubCategories: ["Seed Paper Stationery", "Jute Items"],
+      },
+      {
+        subCategory: "Green Hampers",
+        subSubCategories: ["Planters", "Organic Kits"],
+      },
+    ],
+  },
+  {
+    name: "Premium Gifts",
+    category: "Premium Gifts",
+    BtnCta: "Premium",
+    subCategories: [
+      {
+        subCategory: "Luxury Items",
+        subSubCategories: ["Branded Wallets", "Watches"],
+      },
+      {
+        subCategory: "Designer Brands",
+        subSubCategories: ["Premium Pens", "Leather Accessories"],
+      },
+      {
+        subCategory: "High-End Combos",
+        subSubCategories: ["Exclusive Hampers"],
+      },
+    ],
+  },
+  {
+    name: "Bags & Luggage",
+    category: "Bags & Luggage",
+    BtnCta: "Shop Bags",
+    subCategories: [
+      { subCategory: "Duffle Bags", subSubCategories: [] },
+      { subCategory: "Executive Trolley Bags", subSubCategories: [] },
+      { subCategory: "Backpack Bags", subSubCategories: [] },
+      { subCategory: "Laptop Bags", subSubCategories: [] },
+      { subCategory: "Sling Bags", subSubCategories: [] },
+      { subCategory: "Fanny Packs", subSubCategories: [] },
+      { subCategory: "Gym Bags", subSubCategories: [] },
+      { subCategory: "Waist Pouch", subSubCategories: [] },
+    ],
+  },
+  {
+    name: "Event and Seasonal Gifts",
+    category: "Event and Seasonal Gifts",
+    BtnCta: "Seasonal",
+    subCategories: [
+      {
+        subCategory: "Festival-Specific",
+        subSubCategories: [
+          "Diwali Diyas",
+          "Christmas Ornaments",
+          "Holi Colors",
+        ],
+      },
+      {
+        subCategory: "New Year Gifts",
+        subSubCategories: ["Calendars", "Year Planners", "Desk Organizers"],
+      },
+      {
+        subCategory: "Thank-You Gifts",
+        subSubCategories: ["Greeting Cards", "Custom Hampers"],
+      },
+    ],
+  },
+  {
+    name: "Gift Vouchers",
+    category: "Gift Vouchers",
+    BtnCta: "Redeem",
+    subCategories: [
+      {
+        subCategory: "Brand Vouchers",
+        subSubCategories: [
+          "Amazon",
+          "Myntra",
+          "Flipkart",
+          "Croma",
+          "Lifestyle",
+        ],
+      },
+     {
+  subCategory: "Corporate Reward Vouchers",
+  subSubCategories: [
+    "Employee Voucher",
+    "Reward Voucher",
+    "Incentives Voucher"
+  ],
+},
+
+      {
+        subCategory: "Occasion Vouchers",
+        subSubCategories: [
+          "Diwali Gifting",
+          "New Year Vouchers",
+          "Work Anniversary",
+          "Birthday",
+          "Festival & Seasonal Campaigns",
+        ],
+      },
+      {
+        subCategory: "Custom Value Vouchers",
+        subSubCategories: [],
+      },
+    ],
+  },
+];
+
 
   const getUser = async () => {
     try {

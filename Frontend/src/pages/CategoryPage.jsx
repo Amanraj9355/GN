@@ -13,216 +13,11 @@ const cardimgarr = [
   "/headerRight.png",
 ];
 
-const categoriesData = [
-  {
-    category: "Electronics and Gadgets",
-    subCategories: [
-      {
-        subCategory: "Portable Electronics",
-        subSubCategories: ["Power Banks", "Bluetooth Speakers", "Earphones"],
-      },
-      {
-        subCategory: "Home Gadgets",
-        subSubCategories: ["Smart Plugs", "Air Purifiers"],
-      },
-      {
-        subCategory: "Tech Accessories",
-        subSubCategories: [
-          "Charging Cables",
-          "Laptop Stands",
-          "Wireless Chargers",
-        ],
-      },
-    ],
-  },
-  {
-    category: "Office Essentials",
-    subCategories: [
-      {
-        subCategory: "Stationery",
-        subSubCategories: ["Diaries", "Notebooks", "Sticky Notes"],
-      },
-      {
-        subCategory: "Organizers",
-        subSubCategories: ["Desk Organizers", "Calendars"],
-      },
-      {
-        subCategory: "Writing Instruments",
-        subSubCategories: ["Premium Pens", "Stylus Pens"],
-      },
-    ],
-  },
-  {
-    category: "Drinkware",
-    subCategories: [
-      {
-        subCategory: "Bottles",
-        subSubCategories: [
-          "Stainless Steel",
-          "Vacuum Bottles",
-          "Copper Bottles",
-        ],
-      },
-      {
-        subCategory: "Mugs and Tumblers",
-        subSubCategories: ["Coffee Mugs", "Insulated Tumblers"],
-      },
-      {
-        subCategory: "Gift Sets",
-        subSubCategories: ["Bottle and Mug Combos"],
-      },
-    ],
-  },
-  {
-    category: "Apparel",
-    subCategories: [
-      {
-        subCategory: "T-Shirts",
-        subSubCategories: ["Polo", "Round Neck", "Custom Printed"],
-      },
-      {
-        subCategory: "Jackets",
-        subSubCategories: ["Windcheaters", "Hoodies"],
-      },
-      {
-        subCategory: "Uniforms",
-        subSubCategories: ["Corporate Branding Uniforms"],
-      },
-    ],
-  },
-  {
-    category: "Awards and Recognition",
-    subCategories: [
-      {
-        subCategory: "Trophies",
-        subSubCategories: ["Metal", "Crystal", "Wooden", "Acrylic"],
-      },
-      {
-        subCategory: "Plaques",
-        subSubCategories: ["Customized Engravings"],
-      },
-      {
-        subCategory: "Certificates",
-        subSubCategories: ["Certificate Frames"],
-      },
-    ],
-  },
-  {
-    category: "Food and Beverages",
-    subCategories: [
-      {
-        subCategory: "Gourmet",
-        subSubCategories: ["Dry Fruits"],
-      },
-      {
-        subCategory: "Sweets and Chocolates",
-        subSubCategories: ["Chocolates", "Indian Sweets"],
-      },
-      {
-        subCategory: "Gift Hampers",
-        subSubCategories: ["Curated Sweets & Chocolate Hampers"],
-      },
-    ],
-  },
-  {
-    category: "Eco-Friendly Products",
-    subCategories: [
-      {
-        subCategory: "Reusable Items",
-        subSubCategories: ["Bamboo Products", "Cloth Bags"],
-      },
-      {
-        subCategory: "Sustainable Gifts",
-        subSubCategories: ["Seed Paper Stationery", "Jute Items"],
-      },
-      {
-        subCategory: "Green Hampers",
-        subSubCategories: ["Planters", "Organic Kits"],
-      },
-    ],
-  },
-  {
-    category: "Premium Gifts",
-    subCategories: [
-      {
-        subCategory: "Luxury Items",
-        subSubCategories: ["Branded Wallets", "Watches"],
-      },
-      {
-        subCategory: "Designer Brands",
-        subSubCategories: ["Premium Pens", "Leather Accessories"],
-      },
-      {
-        subCategory: "High-End Combos",
-        subSubCategories: ["Exclusive Hampers"],
-      },
-    ],
-  },
-  {
-    category: "Bags & Luggage",
-    subCategories: [
-      {
-        subCategory: "Duffle Bags",
-        subSubCategories: [],
-      },
-      {
-        subCategory: "Executive Trolley Bags",
-        subSubCategories: [],
-      },
-      {
-        subCategory: "Backpack Bags",
-        subSubCategories: [],
-      },
-      {
-        subCategory: "Laptop Bags",
-        subSubCategories: [],
-      },
-      {
-        subCategory: "Sling Bags",
-        subSubCategories: [],
-      },
-      {
-        subCategory: "Fanny Packs",
-        subSubCategories: [],
-      },
-      {
-        subCategory: "Gym Bags",
-        subSubCategories: [],
-      },
-      {
-        subCategory: "Waist Pouch",
-        subSubCategories: [],
-      },
-    ],
-  },
-  {
-    category: "Event and Seasonal Gifts",
-    subCategories: [
-      {
-        subCategory: "Festival-Specific",
-        subSubCategories: [
-          "Diwali Diyas",
-          "Christmas Ornaments",
-          "Holi Colors",
-        ],
-      },
-      {
-        subCategory: "New Year Gifts",
-        subSubCategories: ["Calendars", "Year Planners", "Desk Organizers"],
-      },
-      {
-        subCategory: "Thank-You Gifts",
-        subSubCategories: ["Greeting Cards", "Custom Hampers"],
-      },
-    ],
-  },
-];
-
 const CategoryPage = () => {
   const { categoryName } = useParams();
   const [clickedCard, setClickedCard] = useState(false);
   const [data, setData] = useState("");
-  const { products } = useContext(ShopContext);
+  const { categoriesData, products } = useContext(ShopContext);
 
   const cardClicked = (subCat) => {
     setClickedCard(!clickedCard);
@@ -282,7 +77,8 @@ const CategoryPage = () => {
                 {sub.subCategory}
               </div>
               <div className="text-base text-gray-600">
-                {sub.subSubCategories.join(", ") || "Various Products"}
+                {sub.subSubCategories.slice(0, 4).join(", ") ||
+                  "Various Products"}
               </div>
             </div>
 
@@ -306,8 +102,8 @@ const CategoryPage = () => {
         ))}
       </div>
 
-       <Link
-            onClick={() => scrollTo(0, 0)}
+      <Link
+        onClick={() => scrollTo(0, 0)}
         to={`/${categoryName}/sub-category`}
         className="explore_btn flex items-center gap-2 justify-center bg-black text-white rounded-full font-semibold px-8 py-3 text-sm hover:bg-gray-900 transition"
       >
@@ -333,10 +129,13 @@ const CategoryPage = () => {
               className="w-full h-[250px] object-contain rounded-xl"
               alt="Gift Banner"
             />
-            <Link onClick={()=>scrollTo(0,0)} to={`/${categoryName}/sub-category`}>
-            <button className="mt-6 bg-black text-white px-6 py-3 rounded-full flex items-center gap-2 mx-auto hover:bg-gray-800 transition">
-              View All Gifts <ArrowRight />
-            </button>
+            <Link
+              onClick={() => scrollTo(0, 0)}
+              to={`/${categoryName}/sub-category`}
+            >
+              <button className="mt-6 bg-black text-white px-6 py-3 rounded-full flex items-center gap-2 mx-auto hover:bg-gray-800 transition">
+                View All Gifts <ArrowRight />
+              </button>
             </Link>
           </div>
         </div>
@@ -354,16 +153,18 @@ const CategoryPage = () => {
 
           <div className="w-full flex flex-wrap md:flex-nowrap gap-6 items-center justify-center px-4 max-w-6xl mx-auto py-5">
             {topPicks.slice(0, 4).map((product) => (
-               <Link
-               key={product._id}
-            onClick={() => scrollTo(0, 0)} to={`/product/${product._id}`}>
+              <Link
+                key={product._id}
+                onClick={() => scrollTo(0, 0)}
+                to={`/product/${product._id}`}
+              >
                 <Card product={product} />
               </Link>
             ))}
           </div>
           <div className="w-full flex justify-center items-center">
             <Link
-            onClick={() => scrollTo(0, 0)}
+              onClick={() => scrollTo(0, 0)}
               to={`/${categoryName}/sub-category`}
               className="explore_btn flex items-center gap-2 justify-center bg-black text-white rounded-full font-semibold px-8 py-3 text-sm hover:bg-gray-900 transition mt-6"
             >

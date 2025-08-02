@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ShopContext } from "../context/store";
 
 
-const emotes = ["🎁", "🎉", "📦", "💼", "🛍️", "🎂", "🍫", "💳", "🎊", "🎀"];
+const emotes = ["🎁", "🎉", "📦", "💼", "🛍️", "🎂", "🍫", "💳", "🎊", "🎀", "🎟️"];
 
 const ctas = [
   "Shop Now",
